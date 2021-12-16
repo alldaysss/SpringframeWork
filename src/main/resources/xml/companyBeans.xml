@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+		<bean id="CompanyService" class="t1214.homework.CompanyService"/>
+		
+		<bean id="parthead" class="t1214.homework.CompanyVO">
+			<property name="position" value="부장"/>
+			<property name="worktime" value="15"/>
+			<property name="companyservice">
+				<ref bean="CompanyService"/>
+			</property>
+		</bean>
+		<bean id="sectionhead" class="t1214.homework.CompanyVO">
+			<property name="position" value="과장"/>
+			<property name="worktime" value="10"/>
+			<property name="companyservice">
+				<ref bean="CompanyService"/>
+			</property>
+		</bean>
+		<bean id="manager" class="t1214.homework.CompanyVO">
+			<property name="position" value="대리"/>
+			<property name="worktime" value="8"/>
+			<property name="companyservice">
+				<ref bean="CompanyService"/>
+			</property>
+		</bean>
+		<bean id="employee" class="t1214.homework.CompanyVO">
+			<property name="position" value="사원"/>
+			<property name="worktime" value="6"/>
+			<property name="companyservice">
+				<ref bean="CompanyService"/>
+			</property>
+		</bean>
+		
+		
+</beans>

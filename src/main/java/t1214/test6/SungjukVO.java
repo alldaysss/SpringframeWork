@@ -5,6 +5,7 @@ public class SungjukVO {
 	private int kor;
 	private int eng;
 	private SungjukService sungjukService;
+	
 	public String getName() {
 		return name;
 	}

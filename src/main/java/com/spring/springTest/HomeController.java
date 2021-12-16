@@ -36,8 +36,10 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 //return "home";
-		return "/main/main";
+//		return "main/main";
+		return "member/main";
 	}
+	
 	/*
 	@RequestMapping("/home")
 	public String homeGet(Model model) {
