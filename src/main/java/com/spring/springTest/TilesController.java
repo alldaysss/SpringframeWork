@@ -1,11 +1,20 @@
 package com.spring.springTest;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.spring.springTest.vo.LomBokVO;
+import com.spring.springTest.vo.ValidatorVO;
 
 @Controller
 @RequestMapping("/tiles")
@@ -75,11 +84,59 @@ public class TilesController {
 		return mv;
 	}
 	//관리자 리스트
+	//Validator(데이터검증) 테스트
 	@RequestMapping("/admin/adminList")
 	public ModelAndView adminListGet(ModelAndView mv) {
 		System.out.println("이곳은 관리자 컨트롤러입니다.");
 		
 		mv.setViewName("admin/adminList");
 		return mv;
+	}
+	// Validator(데이터검증) 테스트
+	@RequestMapping(value="/validatorForm", method = RequestMethod.GET)
+	public String validatorFormGet() {
+		return "/validator/validatorForm";
+	}
+	
+	@RequestMapping(value="/validatorForm", method = RequestMethod.POST)
+	public String validatorFormPost(Model model, @Validated ValidatorVO vo, BindingResult bindreResult) {
+		System.out.println("아이디 : " + vo.getMid());
+		System.out.println("비밀번호 : " + vo.getPwd());
+		System.out.println("나이 : " + vo.getAge());
+		System.out.println("error : " + bindreResult.hasErrors());
+		
+//		if(vo.getMid().equals("")) {
+//			System.out.println("아이디가 비어있습니다.");
+//		}
+		
+		if(bindreResult.hasErrors()) { // bindreResult.hasErrors() 결과값이 true이면 앞에서 전송된 자료에 오류가 있다는 것이다.
+			List<ObjectError> list = bindreResult.getAllErrors();
+			for(ObjectError e : list ) {
+				System.out.println("메시지 : " + e.getDefaultMessage());
+			}
+			System.out.println("-----------------------------------");
+			return "redirect:/tiles/validatorForm";
+		}
+		
+		model.addAttribute("vo", vo);
+		return "/validator/validatorFormOk";
+	}
+	
+	@RequestMapping(value="/lombokForm", method = RequestMethod.GET)
+	public String lombokFormGet() {
+		return "/lombok/lombokForm";
+	}
+	@RequestMapping(value="/lombokForm", method = RequestMethod.POST)
+	public String lombokFormPost(Model model, LomBokVO vo) {
+		model.addAttribute("vo", vo);
+		
+		vo.setSu1(100);
+		vo.setSu2(200);
+		vo.setOp("+");
+		int hap = vo.getSu1() + vo.getSu2();
+		
+		model.addAttribute("hap", hap);
+		model.addAttribute("vo", vo);
+		return "/lombok/lombokFormOk";
 	}
 }

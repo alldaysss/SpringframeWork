@@ -152,6 +152,68 @@
 			<artifactId>tiles-template</artifactId>
 			<version>3.0.8</version>
 		</dependency>
+		<!-- mybatis관련 라이브러리 -->
+		<!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.7</version>
+		</dependency>
+		<!-- mybatis-spring -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>2.0.6</version>
+		</dependency>
+		<!-- spring-jdbc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>5.3.13</version>
+		</dependency>
+		<!-- mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.26</version>
+		</dependency>
+		<!-- BCryptPasswordEncoder객체를 이용한 암호화 -->
+		<!-- spring-security-core -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>5.6.0</version>
+		</dependency>
+		<!-- spring-security-web -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>5.6.0</version>
+		</dependency>
+		<!-- spring-security-config -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.6.0</version>
+		</dependency>
+
+		<!-- 데이터 검증처리 -->
+		<!-- hibernate-validator -->
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.2.0.Final</version>
+		</dependency>
+		
+		<!-- projectlombok/lombok(getters/setters와 toString을 자동으로 만들어주는 라이브러리 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.12</version>
+			<scope>provided</scope>
+		</dependency>
+
+
 
 
 	</dependencies>
@@ -164,7 +226,7 @@
 					<additionalProjectnatures>
 						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
 					</additionalProjectnatures>
-					
+
 					<additionalBuildcommands>
 						<buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
 					</additionalBuildcommands>

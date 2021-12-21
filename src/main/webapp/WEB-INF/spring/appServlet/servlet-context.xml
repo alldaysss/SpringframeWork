@@ -71,4 +71,7 @@
 			<beans:ref bean="adminInterceptor"/>
 		</interceptor>
 	</interceptors>
+	
+	<!-- BCryptPasswordEncoder 객체를 Bean으로 등록 -->
+	<beans:bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 </beans:beans>
